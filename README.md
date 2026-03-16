@@ -20,10 +20,43 @@ To Implement Diffie Hellman Key Exchange Algorithm
 
 ## Program:
 
+```
 
+#include <math.h> 
+#include <stdio.h>
+long long int power(long long int a, long long int b, long long int P)
+{
+if (b == 1) 
+return a;
+else
+return (((long long int)pow(a, b)) % P);
+}
+int main()
+{
+long long int P, G, x, a, y, b, ka, kb;
+printf("\n**Diffie-Hellman Key Exchange algorithm\n\n"); 
+printf("\n\nEnter the value of P: ");
+scanf("%lld",&P); 
+printf("The value of P: %lld\n", P);
+printf("Enter the value of G (Primitive root of P): "); 
+scanf("%lld",&G);
+printf("The value of G: %lld\n\n", G);
+printf("The private key a for Annie : %lld\n", a); 
+x = power(G, a, P); 
+b = 3; 
+printf("The private key b for Saron : %lld\n\n", b); 
+y = power(G, b, P);
+ka = power(y, a, P); 
+kb = power(x, b, P); 
+printf("Secret key for the Annie is : %lld\n", ka); 
+printf("Secret Key for the Saron is : %lld\n", kb);
+return 0;
+}
+```
 
 ## Output:
 
+<img width="1042" height="728" alt="image" src="https://github.com/user-attachments/assets/354541b3-6ea7-467d-9252-130ed3a09707" />
 
 
 ## Result:
